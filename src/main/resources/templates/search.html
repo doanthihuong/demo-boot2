@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div  th:each="pro : ${province}" >
+    <span th:text="${pro.name}"></span>
+    <span th:text="${pro.description}"></span>
+    <a th:href="@{/provinces/edit/__${pro.id}__}">Edit</a>
+    <a th:href="@{/provinces/delete/__${pro.id}__}">Delete</a>
+</div>
+</body>
+</html>

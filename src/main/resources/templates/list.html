@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/provinces/create">
+    Add new
+</a>
+<form action="/provinces/search">
+    <input type="text" name="name" placeholder=" province need find" >
+    <button>search</button>
+</form>
+
+<a href="/provinces/findTop">
+    Top 3 name
+</a>
+
+    <table class="table table-striped">
+        <h3> Province List   </h3>
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">description</th>
+            <th scope="col">name</th>
+        </tr>
+        </thead>
+        <body>
+        <th:forEach th:each="pro : ${province}">
+            <tr>
+                <!--            <td><span th:text="${pro.id}"></span></td>-->
+                <td><span th:text="${pro.name}"></span></td>
+                <td><span th:text="${pro.description}"></span></td>
+
+                <td>
+                    <a th:href="@{/provinces/edit/__${pro.id}__}">Edit</a>
+                    <a th:href="@{/provinces/delete/__${pro.id}__}">Delete</a>
+                </td>
+
+            </tr>
+        </th:forEach>
+        </body>
+    </table>
+
+
+<!--<div  th:each="pro : ${province}" >-->
+<!--    <span th:text="${pro.name}"></span>-->
+<!--    <span th:text="${pro.description}"></span>-->
+
+<!--</div>-->
+</body>
+</html>
+
+
+
+
